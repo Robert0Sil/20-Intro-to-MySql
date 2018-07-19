@@ -1,0 +1,96 @@
+<< Se crea Base de Datos >>
+
+CREATE DATABASE DBA_Robert0Sil;
+
+
+<< Ingreso a la Base de datos para crear las tablas >>
+
+USE DBA_Robert0Sil
+
+
+<< Se crea Tabla con sus campos o registros o columnas >>
+
+CREATE TABLE empresas (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+rfc VARCHAR(14) NOT NULL,
+nombre VARCHAR(50) NOT NULL,
+direccion VARCHAR(120),
+cp INT(7),
+delegacion VARCHAR(50),
+telefono INT(10)
+);
+
+
+<< Se crea Tabla con sus campos o registros o columnas >>
+
+CREATE TABLE trabajador (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+rfc VARCHAR(14) NOT NULL,
+nombre VARCHAR(50) NOT NULL,
+apellido_p VARCHAR(50) NOT NULL,
+apellido_m VARCHAR(50) NOT NULL,
+nss INT,
+rfc_empresa INT NOT NULL,
+FOREIGN KEY (rfc_empresa) REFERENCES empresas(id)
+);
+
+
+<< Se crea Tabla con sus campos o registros o columnas >>
+
+CREATE TABLE estudiantes (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+matricula VARCHAR(14) NOT NULL,
+nombre VARCHAR(50) NOT NULL,
+apellido_p VARCHAR(50) NOT NULL,
+apellido_m VARCHAR(50) NOT NULL,
+direccion VARCHAR(120),
+cp INT(7),
+delegacion VARCHAR(50),
+telefono INT(10)
+);
+
+
+<< Se crea Tabla con sus campos o registros o columnas >>
+
+CREATE TABLE clases (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+id_estudiante INT NOT NULL,
+FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id),
+id_curso INT NOT NULL,
+FOREIGN KEY (id_curso) REFERENCES empresas(id),
+fecha_inicio TIME DEFAULT "00:00:00",
+fecha_termino TIME DEFAULT "00:00:00"
+);
+
+
+<< Se crea Tabla con sus campos o registros o columnas >>
+
+CREATE TABLE profesor (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+apellido_p VARCHAR(50) NOT NULL,
+apellido_m VARCHAR(50) NOT NULL,
+direccion VARCHAR(120),
+cp INT(7),
+delegacion VARCHAR(50),
+telefono INT(10)
+);
+
+
+<< Se crea Tabla con sus campos o registros o columnas >>
+
+CREATE TABLE curso (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+duracion VARCHAR(50) NOT NULL,
+tema VARCHAR(50),
+id_profesor INT NOT NULL,
+FOREIGN KEY (id_profesor) REFERENCES profesor(id)
+);
+
+
+be@nAw3someDev
+
+root
+
