@@ -89,8 +89,12 @@ id_profesor INT NOT NULL,
 FOREIGN KEY (id_profesor) REFERENCES profesor(id)
 );
 
-
+sh root@45.55.135.14
 be@nAw3someDev
 
 root
 
+
+ALTER TABLE clases MODIFY fecha_inicio DATE DEFAULT "2018-07-30";
+
+ALTER TABLE clases MODIFY fecha_termino DATE DEFAULT "2018-09-30";
